@@ -1,0 +1,71 @@
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  color: #fff;
+  background: var(--accent-soft);
+}
+
+code {
+  padding: .08em .35em;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  overflow-wrap: anywhere;
+  color: #f6d2a5;
+  background: #0b0e14;
+}
+
+.cheat-game-card h3 { font-size: 1.55rem; margin: 10px 0; }
+.cheat-game-card .btn { margin-top: 10px; }
+.cheat-page-title { padding-bottom: 22px; }
+.cheat-page-title .eyebrow { display: flex; margin-top: 16px; }
+.cheat-back { display: inline-block; font-weight: 700; }
+
+.cheat-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.cheat-step, .cheat-stat {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: #c5cbd6;
+}
+.cheat-step strong { display: block; margin-bottom: 4px; color: var(--accent-2); }
+.cheat-editor {
+  padding: clamp(22px, 5vw, 42px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(22,28,39,.96), rgba(13,17,24,.96));
+  box-shadow: var(--shadow);
+}
+.cheat-editor h2 { margin: 8px 0 26px; }
+.cheat-editor label { display: block; margin-bottom: 9px; font-weight: 750; }
+.cheat-filebox {
+  padding: 17px;
+  border: 1px dashed rgba(255,179,71,.58);
+  border-radius: var(--radius-sm);
+  background: rgba(0,0,0,.18);
+}
+.cheat-filebox input { max-width: 100%; }
+.cheat-help { margin: 11px 0 21px; color: var(--muted); font-size: .92rem; }
+.cheat-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 26px 0; }
+.cheat-stat span { display: block; font-size: .85rem; color: var(--muted); }
+.cheat-stat b { display: block; margin-top: 4px; font-size: 1.35rem; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.cheat-stat #filename { font-size: 1rem; }
+.cheat-editor #newAmount { max-width: 400px; font-size: 1.22rem; font-variant-numeric: tabular-nums; }
+.cheat-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.cheat-actions button { font: inherit; font-weight: 850; }
+.cheat-actions button:disabled { opacity: .45; cursor: not-allowed; transform: none; filter: none; box-shadow: none; }
+.cheat-status { min-height: 2.5em; margin: 19px 0 0; color: #c5cbd6; }
+.cheat-status.error { color: #ffa8a8; }
+.cheat-status.success { color: #a0f0bf; }
+.cheat-instructions { margin: 24px 0 34px; }
+.cheat-instructions h2 { margin: 0 0 14px; }
+.cheat-instructions ol { padding-left: 1.3rem; }
+
+@media (max-width: 720px) {
+  .cheat-steps, .cheat-summary { grid-template-columns: 1fr; }
+  .cheat-actions button { width: 100%; }
+}

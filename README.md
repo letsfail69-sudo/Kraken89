@@ -20,3 +20,6 @@ Až budeš chtít přepnout `kraken89.cz` z Bloggeru na GitHub Pages, nastav vla
 - Sociální sítě a YouTube kanály zůstávají jako externí odkazy.
 - Blogger komentáře, Atom feed, štítky a další Blogger funkce byly odstraněny.
 - Původní fotky z jednotlivých Blogger příspěvků nejsou v archivu obsaženy.
+
+## Herní nástroje
+Stránka `cheaty.html` obsahuje přehled nástrojů. Každá hra má vlastní složku v `cheaty/`; další postup pro rozšíření je v `cheaty/README.md`. První editor je `cheaty/the-crust/index.html` pro The Crust.

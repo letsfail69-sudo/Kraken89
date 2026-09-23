@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Neoficiální editor kreditů pro The Crust. Vyberte svůj Level.sav, stáhněte zálohu a upravte počet kreditů lokálně v prohlížeči.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>The Crust – editor kreditů | Rendys1989 / Kraken89</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/cheaty.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a class="brand" href="../../index.html">Rendys1989 / Kraken89</a>
+      <button class="menu-btn" aria-label="Menu" type="button">☰ Menu</button>
+      <div class="nav-links">
+        <a href="../../index.html">Homepage</a>
+        <a href="../../tvorba-videi.html">Tvorba videí</a>
+        <a href="../../hudba.html">Hudba</a>
+        <a href="../../cestiny-do-her.html">Češtiny do her</a>
+        <a class="active" href="../../cheaty.html">Cheaty</a>
+        <a href="https://www.facebook.com/renda1989" rel="noopener" target="_blank">Facebook</a>
+        <a href="../../webove-stranky.html">Webové stránky</a>
+        <a href="../../fotky.html">Fotky</a>
+        <a href="../../kontakt.html">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="page-title cheat-page-title">
+      <a class="cheat-back" href="../../cheaty.html">← Všechny herní nástroje</a>
+      <div class="eyebrow">The Crust · neoficiální nástroj</div>
+      <h1>Editor kreditů</h1>
+      <p class="muted">Vyber svůj <code>Level.sav</code>, nastav kredity a stáhni upravenou pozici. Soubor se zpracovává ve tvém prohlížeči; editor jej nikam neodesílá.</p>
+    </div>
+
+    <div class="cheat-steps" aria-label="Jak editor použít">
+      <div class="cheat-step"><strong>1 · Zavři hru</strong>Ukonči The Crust, aby se pozice během úpravy nepřepsala.</div>
+      <div class="cheat-step"><strong>2 · Vyber pozici</strong>V příslušné složce zvol soubor <code>Level.sav</code>.</div>
+      <div class="cheat-step"><strong>3 · Uprav kredity</strong>Stáhni zálohu a potom nový soubor.</div>
+    </div>
+
+    <section class="cheat-editor" aria-labelledby="editor-title">
+      <div class="eyebrow">Ověřeno na verzi hry 1.0.13</div>
+      <h2 id="editor-title">Upravit uloženou pozici</h2>
+      <label for="saveFile">Soubor Level.sav</label>
+      <div class="cheat-filebox"><input id="saveFile" type="file" accept=".sav" aria-describedby="saveHelp"></div>
+      <p class="cheat-help" id="saveHelp">Ve Windows stiskni Win + R a otevři <code>%LOCALAPPDATA%\TheCrust\Saved\SaveGames</code>. Vyber složku požadované pozice a v ní <code>Level.sav</code>.</p>
+
+      <div class="cheat-summary">
+        <div class="cheat-stat"><span>Aktuální kredity v souboru</span><b id="currentAmount">—</b></div>
+        <div class="cheat-stat"><span>Načtený soubor</span><b id="filename">Žádný</b></div>
+      </div>
+
+      <label for="newAmount">Nový počet kreditů</label>
+      <input id="newAmount" type="text" inputmode="numeric" value="10000000" aria-describedby="amountHelp">
+      <p class="cheat-help" id="amountHelp">Zadej celé číslo od 0 do 1 000 000 000. Hra ukládá kredity jako Float, takže některé vyšší částky se zaokrouhlí.</p>
+
+      <div class="cheat-actions">
+        <button class="btn secondary" id="backupButton" type="button" disabled>Stáhnout zálohu</button>
+        <button class="btn" id="patchButton" type="button" disabled>Stáhnout upravený Level.sav</button>
+      </div>
+      <p id="status" class="cheat-status" role="status" aria-live="polite">Vyber soubor Level.sav z požadované pozice.</p>
+    </section>
+
+    <section class="content cheat-instructions" aria-labelledby="after-title">
+      <h2 id="after-title">Po stažení</h2>
+      <ol>
+        <li>Najdi ve Stažených souborech zálohu a nově vytvořený <code>Level.sav</code>.</li>
+        <li>Upravený <code>Level.sav</code> zkopíruj do složky pozice, odkud jsi vybral původní soubor, a potvrď nahrazení.</li>
+        <li>Spusť hru a načti <strong>tutéž pozici</strong>. Pokud se vytvořil nový autosave, vyber původní pozici ručně.</li>
+      </ol>
+      <p class="muted">Původní zálohu si ponech pro případný návrat. Editor odmítne save, jehož formát nebo záznamy kreditů nepozná. Upravené pozice nepoužívej pro online žebříčky.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner">© 2026 Rendys1989 / Kraken89 · Neoficiální nástroj, který není spojen s vývojáři hry.</div></footer>
+  <script src="../../js/script.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
