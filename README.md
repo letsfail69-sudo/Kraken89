@@ -23,3 +23,6 @@ Až budeš chtít přepnout `kraken89.cz` z Bloggeru na GitHub Pages, nastav vla
 
 ## Herní nástroje
 Stránka `cheaty.html` obsahuje přehled nástrojů. Každá hra má vlastní složku v `cheaty/`; další postup pro rozšíření je v `cheaty/README.md`. První editor je `cheaty/the-crust/index.html` pro The Crust.
+
+## Online hry
+Rozcestník `online-hry/index.html` vede na hry v samostatných podsložkách. Rozvozák Idle je v `online-hry/rozvozak/index.html` a nepotřebuje další soubory. Postup ukládá pouze do `localStorage` v prohlížeči hráče.
