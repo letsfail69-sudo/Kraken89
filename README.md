@@ -26,3 +26,6 @@ Stránka `cheaty.html` obsahuje přehled nástrojů. Každá hra má vlastní sl
 
 ## Online hry
 Rozcestník `online-hry/index.html` vede na hry v samostatných podsložkách. Rozvozák Idle je v `online-hry/rozvozak/index.html` a nepotřebuje další soubory. Postup ukládá pouze do `localStorage` v prohlížeči hráče.
+
+## Aplikace
+Sekce aplikace/ obsahuje Překladač her, stažení a historii verzí. Pokyny k dalším vydáním jsou v aplikace/README.md.

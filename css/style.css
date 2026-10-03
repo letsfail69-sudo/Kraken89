@@ -360,3 +360,7 @@ select option { background: #0d1118; color: #fff; }
   .actions .btn { width: 100%; }
   .spotify { min-height: 420px; }
 }
+
+/* Navigace s aplikacemi */
+.nav{max-width:1480px;gap:16px}.nav-links a{white-space:nowrap}.nav-links a.active{color:#fff;background:var(--accent-soft)}
+@media(max-width:1380px){.menu-btn{display:inline-flex}.nav{flex-wrap:wrap;padding-top:12px;padding-bottom:12px}.nav-links{display:none;width:100%;margin-left:0;padding-top:8px;flex-direction:column;align-items:stretch;max-height:calc(100dvh - 100px);overflow-y:auto}.nav-links.open{display:flex}.nav-links a{padding:11px 12px}}

@@ -1,0 +1,45 @@
+{
+  "SchemaVersion": 1,
+  "Versions": [
+    {
+      "Version": "1.3.2",
+      "Date": "2026-10-03",
+      "Status": "prepared",
+      "Title": "Údaje o verzích a funkčnosti češtin",
+      "Changes": [
+        "Oddělené údaje o verzi češtiny a verzi hry podle autora.",
+        "Datum aktualizace a stav funkčnosti, pokud je zdrojový web uvádí.",
+        "Upozornění na problematickou češtinu a potvrzení před stažením.",
+        "Opětovná kontrola dostupného odkazu a funkčnosti před stažením.",
+        "Údaje o funkčnosti se ukládají spolu s původem balíčku.",
+        "Jasnější označení instalátoru češtiny. Shoda s místní verzí hry zůstává neověřená."
+      ]
+    },
+    {
+      "Version": "1.3.1",
+      "Date": "2026-10-03",
+      "Status": "released",
+      "Title": "Oprava stahování ve Windows",
+      "Changes": [
+        "Opravené ukládání stažených češtin a aktualizací aplikace na Windows.",
+        "Oprava označení původu stažených souborů bez změny jejich obsahu.",
+        "Stejná oprava pro soubory rozbalené ze ZIPu.",
+        "Po chybě se ukazatel stahování vrací na začátek."
+      ]
+    },
+    {
+      "Version": "1.3.0",
+      "Date": null,
+      "Status": "archive",
+      "Title": "Nové rozhraní, komunitní češtiny a aktualizace",
+      "Changes": [
+        "Přepracované hlavní okno se seznamem her a hledáním.",
+        "Kontrola vestavěné češtiny podle jazyků na Steamu.",
+        "Vyhledávání na JsemGamer, Lokalizace.net, Komunitní překlady a Herní překlady.",
+        "Stahování balíčků, rozbalení ZIPu a spuštění instalátoru češtiny.",
+        "Editor zdrojů a možnost doplnit další web.",
+        "Denní a ruční kontrola aktualizací s ověřením instalačního souboru."
+      ]
+    }
+  ]
+}
