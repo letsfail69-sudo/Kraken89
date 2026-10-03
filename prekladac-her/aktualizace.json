@@ -1,9 +1,9 @@
 {
   "SchemaVersion": 1,
-  "Version": "1.3.0",
-  "InstallerUrl": "https://github.com/DOPLN_UZIVATELE/DOPLN_REPO/releases/download/v1.3.0/Prekladac_Her_Setup.exe",
-  "InstallerSha256": "cfb2a92b7b900c24f9e13672bd311318a7c110f4999a79f234684c9e152c9b99",
-  "InstallerBytes": 67502080,
+  "Version": "1.3.1",
+  "InstallerUrl": "https://github.com/letsfail69-sudo/Kraken89/releases/download/v1.3.1/Prekladac_Her_Setup.exe",
+  "InstallerSha256": "aced26b1b6984a99dcb7a5e69765f1a8c16948509b04b563534e079a32d149d1",
+  "InstallerBytes": 67506688,
   "PageUrl": "https://www.kraken89.cz/",
-  "Notes": "Nové rozložení, kontrola češtiny ze Steamu, čtyři komunitní weby a aktualizace aplikace."
+  "Notes": "Oprava ukládání stažených češtin a aktualizací na Windows."
 }
