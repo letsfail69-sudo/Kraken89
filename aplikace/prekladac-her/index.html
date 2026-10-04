@@ -8,7 +8,11 @@
   <link rel="canonical" href="https://kraken89.cz/aplikace/prekladac-her/">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../aplikace.css">
+<<<<<<< HEAD
 <script defer src="../aplikace.js"></script></head>
+=======
+</head>
+>>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Hlavní navigace">
@@ -147,15 +151,28 @@
         </p>
         <details class="app-proof">
           <summary>Velikost a kontrolní součet EXE</summary>
+<<<<<<< HEAD
           <p data-setup-size>64,4 MB</p>
           <div class="app-sha-wrap">
             <code data-setup-sha256>ae80e4f0d494ee2fa01127266f980566091abb1cbf8c7d23ffa026b41909d025</code>
+=======
+          <p data-setup-size>Údaje se načítají z aktualizačního souboru.</p>
+          <div class="app-sha-wrap">
+            <code data-setup-sha256>Kontrolní součet zatím není načtený.</code>
+>>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
           </div>
         </details>
       </div>
       <article class="card">
         <h3>Co přináší aktuální vydání</h3>
+<<<<<<< HEAD
         <p data-current-notes>Nové rozložení menu, průvodce překladem, přehled změn a oprava předání instalátoru.</p>
+=======
+        <p data-current-notes>
+          Nové rozložení menu, průvodce překladem, přehled změn
+          a úpravy předání instalátoru.
+        </p>
+>>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
         <a href="historie.html">Celá historie verzí</a>
       </article>
     </section>
@@ -248,6 +265,105 @@
   </footer>
 
   <script src="../../js/script.js"></script>
+<<<<<<< HEAD
   
+=======
+  <script>
+    (async function () {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 7000);
+
+      try {
+        const response = await fetch(
+          "../../prekladac-her/aktualizace.json",
+          {
+            cache: "no-store",
+            credentials: "omit",
+            signal: controller.signal
+          }
+        );
+
+        if (!response.ok) throw new Error("Aktualizační údaje nejsou dostupné.");
+
+        const release = await response.json();
+        const version = String(release.Version || "");
+
+        if (
+          release.SchemaVersion !== 1 ||
+          !/^\d+\.\d+\.\d+(?:\.\d+)?$/.test(version) ||
+          !/^[a-fA-F0-9]{64}$/.test(release.InstallerSha256 || "") ||
+          !Number.isSafeInteger(release.InstallerBytes) ||
+          release.InstallerBytes <= 0
+        ) {
+          throw new Error("Neplatné aktualizační údaje.");
+        }
+
+        const installer = new URL(release.InstallerUrl);
+        const repositoryPath = "/letsfail69-sudo/Kraken89";
+        const match = installer.pathname.match(
+          /^\/letsfail69-sudo\/Kraken89\/releases\/download\/(v?\d+\.\d+\.\d+(?:\.\d+)?)\/Prekladac_Her_Setup\.exe$/
+        );
+
+        if (
+          installer.protocol !== "https:" ||
+          installer.host !== "github.com" ||
+          installer.username ||
+          installer.password ||
+          installer.search ||
+          installer.hash ||
+          !match ||
+          match[1].replace(/^v/, "") !== version
+        ) {
+          throw new Error("Neplatný odkaz na instalátor.");
+        }
+
+        const tag = match[1];
+        const base = "https://github.com" + repositoryPath;
+        const assets = {
+          setup: "Prekladac_Her_Setup.exe",
+          zip: "Prekladac_Her_Instalator.zip",
+          portable: "Prekladac_Her_Portable.zip"
+        };
+
+        document.querySelectorAll("[data-current-version]").forEach(element => {
+          element.textContent = version;
+        });
+
+        document.querySelectorAll("[data-download]").forEach(element => {
+          const filename = assets[element.dataset.download];
+          if (filename) {
+            element.href = base + "/releases/download/" + tag + "/" + filename;
+          }
+        });
+
+        document.querySelector("[data-release-page]").href =
+          base + "/releases/tag/" + tag;
+
+        document.querySelector("[data-setup-size]").textContent =
+          new Intl.NumberFormat("cs-CZ", {
+            maximumFractionDigits: 1
+          }).format(release.InstallerBytes / 1024 / 1024) + " MB";
+
+        document.querySelector("[data-setup-sha256]").textContent =
+          release.InstallerSha256.toLowerCase();
+
+        if (typeof release.Notes === "string" && release.Notes.trim()) {
+          document.querySelector("[data-current-notes]").textContent =
+            release.Notes.slice(0, 8000);
+        }
+
+        document.querySelector("[data-release-status]").textContent =
+          "Údaje o vydání byly načteny z webu autora. Testovací vydání pro Windows.";
+      } catch (error) {
+        document.querySelector("[data-release-status]").textContent =
+          "Aktuální vydání se nepodařilo ověřit. Dostupné soubory zkontroluj na GitHubu.";
+        document.querySelector("[data-release-page]").href =
+          "https://github.com/letsfail69-sudo/Kraken89/releases";
+      } finally {
+        clearTimeout(timeout);
+      }
+    }());
+  </script>
+>>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
 </body>
 </html>
