@@ -16,3 +16,5 @@ Nahraj obsah složky Kraken89-main do stávajícího repozitáře webu.
 Web načítá aktuální vydání z aktualizace.json. Připravený záznam označí jako vydaný jen při shodě s aktuální verzí tohoto souboru. Nyní je veřejná verze 1.3.1; 1.3.2 je připravená.
 
 Další aplikaci přidej do vlastní podsložky a vlož kartu do katalogu. Do webu nepatří API klíče ani soukromý autorský balíček.
+
+Aktualizace 1.3.3: společný JavaScript podporuje tagy s v i bez v podle InstallerUrl. Historie používá pole Tag. Aktuální součet EXE byl porovnán s GitHub release 1.3.3.

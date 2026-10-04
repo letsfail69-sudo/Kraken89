@@ -2,9 +2,24 @@
   "SchemaVersion": 1,
   "Versions": [
     {
+      "Version": "1.3.3",
+      "Date": "2026-10-03",
+      "Status": "released",
+      "Tag": "1.3.3",
+      "Title": "Nové menu, průvodce a aktualizace",
+      "Changes": [
+        "Vycentrované úvodní menu s dlaždicemi a výrazným spuštěním aplikace.",
+        "Hlavní okno bez duplicitních odkazů, s návratem do menu.",
+        "Průvodce výběrem služby a zapnutím překladu.",
+        "Informace o uloženém nastavení překladu vybrané hry.",
+        "Přehled Co je nového přímo v aplikaci.",
+        "Úpravy předání instalátoru a jeho pracovní složky při aktualizaci."
+      ]
+    },
+    {
       "Version": "1.3.2",
       "Date": "2026-10-03",
-      "Status": "prepared",
+      "Status": "released",
       "Title": "Údaje o verzích a funkčnosti češtin",
       "Changes": [
         "Oddělené údaje o verzi češtiny a verzi hry podle autora.",
@@ -13,7 +28,8 @@
         "Opětovná kontrola dostupného odkazu a funkčnosti před stažením.",
         "Údaje o funkčnosti se ukládají spolu s původem balíčku.",
         "Jasnější označení instalátoru češtiny. Shoda s místní verzí hry zůstává neověřená."
-      ]
+      ],
+      "Tag": "1.3.2"
     },
     {
       "Version": "1.3.1",
@@ -25,7 +41,8 @@
         "Oprava označení původu stažených souborů bez změny jejich obsahu.",
         "Stejná oprava pro soubory rozbalené ze ZIPu.",
         "Po chybě se ukazatel stahování vrací na začátek."
-      ]
+      ],
+      "Tag": "v1.3.1"
     },
     {
       "Version": "1.3.0",

@@ -2,7 +2,7 @@
   'use strict';
   const folder = new URL('.', document.currentScript.src);
   const repository = 'https://github.com/letsfail69-sudo/Kraken89';
-  let currentVersion = '1.3.1', entries = [], filter = 'all';
+  let currentVersion = '1.3.3', currentTag = '1.3.3', entries = [], filter = 'all';
   async function readJson(url) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 7000);
@@ -46,7 +46,7 @@
       const list = node('ul'); entry.Changes.forEach(text => list.append(node('li', text))); article.append(list);
       if (!released) article.append(node('p', 'Vydání je připravené k testování. Stažení se zpřístupní po zveřejnění.', 'app-small'));
       else if (active || entry.Status !== 'archive') {
-        const link = node('a', 'Vydání na GitHubu →'); link.href = repository + '/releases/tag/v' + entry.Version; article.append(link);
+        const link = node('a', 'Vydání na GitHubu →'); link.href = repository + '/releases/tag/' + (active ? currentTag : entry.Tag || entry.Version); article.append(link);
       }
       fragment.append(article);
     }
@@ -57,13 +57,16 @@
     try {
       const data = await readJson(new URL('../prekladac-her/aktualizace.json', folder));
       if (data.SchemaVersion !== 1 || !/^\d+\.\d+\.\d+(?:\.\d+)?$/.test(data.Version) || !/^[a-f\d]{64}$/i.test(data.InstallerSha256 || '') || !Number.isSafeInteger(data.InstallerBytes) || data.InstallerBytes <= 0) throw new Error('Invalid release');
-      const base = repository + '/releases/download/v' + data.Version + '/';
-      if (data.InstallerUrl !== base + 'Prekladac_Her_Setup.exe') throw new Error('Unexpected download URL');
+      const candidates = [data.Version, 'v' + data.Version];
+      const tag = candidates.find(value => data.InstallerUrl === repository + '/releases/download/' + value + '/Prekladac_Her_Setup.exe');
+      if (!tag) throw new Error('Unexpected download URL');
+      const base = repository + '/releases/download/' + tag + '/';
+      currentTag = tag;
       currentVersion = data.Version;
       document.querySelectorAll('[data-current-version]').forEach(el => { el.textContent = data.Version; });
       const files = { setup: 'Prekladac_Her_Setup.exe', zip: 'Prekladac_Her_Instalator.zip', portable: 'Prekladac_Her_Portable.zip' };
       document.querySelectorAll('[data-download]').forEach(el => { if (files[el.dataset.download]) el.href = base + files[el.dataset.download]; });
-      document.querySelectorAll('[data-release-page]').forEach(el => { el.href = repository + '/releases/tag/v' + data.Version; });
+      document.querySelectorAll('[data-release-page]').forEach(el => { el.href = repository + '/releases/tag/' + currentTag; });
       document.querySelectorAll('[data-current-notes]').forEach(el => { el.textContent = typeof data.Notes === 'string' && data.Notes.trim() ? data.Notes.slice(0, 600) : 'Podrobnosti o změnách najdeš v historii verzí.'; });
       document.querySelectorAll('[data-setup-sha256]').forEach(el => { el.textContent = data.InstallerSha256.toLowerCase(); });
       document.querySelectorAll('[data-setup-size]').forEach(el => { el.textContent = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 1 }).format(data.InstallerBytes / 1048576) + ' MB'; });
