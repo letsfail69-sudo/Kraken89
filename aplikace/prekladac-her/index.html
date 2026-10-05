@@ -8,11 +8,7 @@
   <link rel="canonical" href="https://kraken89.cz/aplikace/prekladac-her/">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../aplikace.css">
-<<<<<<< HEAD
 <script defer src="../aplikace.js"></script></head>
-=======
-</head>
->>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Hlavní navigace">
@@ -67,7 +63,8 @@
 
     <nav class="app-local-nav" aria-label="Obsah stránky">
       <a href="#funkce">Funkce</a>
-      <a href="#novinky">Novinky</a>
+      <a href="#novinky">Novinky 1.3.4</a>
+      <a href="#pripravujeme">Chystáme</a>
       <a href="#stazeni">Stažení</a>
       <a href="#navod">Návod</a>
       <a href="#otazky">Otázky</a>
@@ -105,17 +102,20 @@
     </section>
 
     <section id="novinky">
-      <h2>Novinky ve verzi 1.3.3</h2>
+      <h2 data-version-134-heading>Připraveno ve verzi 1.3.4</h2>
       <article class="card">
-        <ul>
-          <li>Vycentrované úvodní menu s přehlednými dlaždicemi a výrazným tlačítkem pro spuštění aplikace.</li>
-          <li>Hlavní okno bez duplicitních odkazů na web, podporu, feedback a aktualizace.</li>
-          <li>Průvodce výběrem překladové služby a zapnutím překladu.</li>
-          <li>Informace o uloženém nastavení překladu vybrané hry.</li>
-          <li>Přehled „Co je nového“ přímo v menu aplikace.</li>
-          <li>Úpravy předání instalátoru a jeho pracovní složky při aktualizaci.</li>
-        </ul>
-        <a href="historie.html">Zobrazit historii verzí</a>
+        <p data-pending-134>Rozšířený balík je připravený k testování na Windows. Nové soubory ke stažení se zpřístupní po zveřejnění vydání.</p>
+<ul><li>Možnost automatický překlad vypnout a později obnovit.</li><li>Odstranění evidovaných překladových součástí s obnovou původních souborů a volbou zachovat automatické překlady.</li><li>Kontrola změněných souborů, poškozených záloh a dalších pluginů nebo patcherů před odstraněním.</li><li>Oblíbené hry nahoře v seznamu a přehled stavu, služby a velikosti uložených překladů.</li><li>Informace o hře včetně místního Steam App ID, Build ID a větve.</li><li>Porovnání místního Steam sestavení s explicitními údaji na původním webu češtiny.</li><li>Zobrazení dostupných údajů autora, zdroje, verze češtiny a hry a upozornění na funkčnost.</li><li>Opakovaná kontrola před stažením a spuštěním instalátoru češtiny; doložené jiné Steam ID hry akci zablokuje.</li><li>Export diagnostiky k feedbacku se skrytím rozpoznaných klíčů a nahrazením cest ke hře a profilu.</li><li>Chystané novinky v menu: komunitní knihovna, dobrovolné sdílení a souhrnné statistiky. Zatím se nic neodesílá.</li></ul><p>Shoda Build ID podle údajů autora není test funkčnosti ve hře. Když web potřebné údaje neposkytuje, kompatibilita zůstane neověřená. Číslo verze typu „1.2.3“ není automaticky Steam Build ID.</p>
+<p>Po odstranění překladu zůstávají zálohy a neznámé soubory pro kontrolu. Volba odstranit uložené překlady se týká známých automatických souborů Google a ChatGPT; ručně vytvořené překlady se nemažou.</p>
+<a href="historie.html">Zobrazit historii verzí</a>
+      </article>
+    </section>
+    <section id="pripravujeme">
+      <h2>Chystáme: komunitní knihovnu češtin</h2>
+      <article class="card">
+        <p>Plánujeme společnou knihovnu, ve které budou hráči dobrovolně sdílet, doplňovat a opravovat překlady. Češtiny budou rozdělené podle hry a verze a odlišíme automatické, komunitně opravené a ověřené překlady.</p>
+        <p>Do budoucna chceme také souhrnný přehled oblíbenosti her podle spuštění přes aplikaci. Sdílení bude dobrovolné; počet spuštění nebude potvrzením funkčnosti češtiny.</p>
+        <p><strong>Tyto funkce zatím nejsou dostupné.</strong> Verze 1.3.4 překlady, seznam nainstalovaných her ani statistiky na vlastní server neodesílá.</p>
       </article>
     </section>
 
@@ -151,28 +151,15 @@
         </p>
         <details class="app-proof">
           <summary>Velikost a kontrolní součet EXE</summary>
-<<<<<<< HEAD
           <p data-setup-size>64,4 MB</p>
           <div class="app-sha-wrap">
             <code data-setup-sha256>ae80e4f0d494ee2fa01127266f980566091abb1cbf8c7d23ffa026b41909d025</code>
-=======
-          <p data-setup-size>Údaje se načítají z aktualizačního souboru.</p>
-          <div class="app-sha-wrap">
-            <code data-setup-sha256>Kontrolní součet zatím není načtený.</code>
->>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
           </div>
         </details>
       </div>
       <article class="card">
         <h3>Co přináší aktuální vydání</h3>
-<<<<<<< HEAD
         <p data-current-notes>Nové rozložení menu, průvodce překladem, přehled změn a oprava předání instalátoru.</p>
-=======
-        <p data-current-notes>
-          Nové rozložení menu, průvodce překladem, přehled změn
-          a úpravy předání instalátoru.
-        </p>
->>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
         <a href="historie.html">Celá historie verzí</a>
       </article>
     </section>
@@ -222,7 +209,7 @@
 
       <details>
         <summary>Jak ověřím verzi komunitní češtiny?</summary>
-        <p>Čti údaje autora a požadavky instalátoru. Aplikace zobrazuje dostupné informace o verzi a funkčnosti překladu, pokud je zdroj uvádí. Dostupnost překladu ani tyto údaje samy o sobě nepotvrzují shodu s místní verzí hry.</p>
+        <p>Od verze 1.3.4 aplikace porovnává místní Steam Build ID s explicitními údaji na původním webu češtiny. Shoda podle autora není potvrzením funkčnosti ve hře. Pokud chybí potřebné údaje o sestavení a Steam ID hry, kompatibilita zůstane neověřená. Zkontroluj také edici, větev hry a pokyny instalátoru.</p>
       </details>
 
       <details>
@@ -230,6 +217,14 @@
         <p>Po zaškrtnutí otevřou další spuštění ten den rovnou seznam her. Následující den se menu znovu zobrazí. Den se řídí místním datem počítače. Tlačítkem „Zpět do menu“ se můžeš vrátit i během dne.</p>
       </details>
 
+      <details>
+        <summary>Mohu češtinu vypnout nebo odstranit?</summary>
+        <p>Ve verzi 1.3.4 otevři Správu překladu u zavřené hry. Překlad lze vypnout a obnovit, nebo odstranit evidované součásti s volbou zachovat uložené automatické překlady. Při konfliktu, chybějící evidenci nebo dalším modu se úplné odstranění zastaví. Zálohy, neznámé soubory a ruční překlady zůstávají zachované. Tato správa se týká automatického překladu přidaného aplikací, nikoli obecného odinstalování cizích komunitních češtin.</p>
+      </details>
+      <details>
+        <summary>Jak pošlu diagnostiku?</summary>
+        <p>Ve verzi 1.3.4 vyber podporovanou hru a použij Export diagnostiky. Soubor přilož ručně k e-mailu s feedbackem. Export skrývá rozpoznané API klíče a nahrazuje cesty ke hře a uživatelskému profilu; před odesláním si obsah zkontroluj.</p>
+      </details>
       <details>
         <summary>Co se stane při aktualizaci aplikace?</summary>
         <p>Nainstaluje se nové vydání aplikace. Překladové soubory u her se při běžné aktualizaci používají dál. Pokud instalaci blokuje používaný soubor, zavři překladač a spusť stažený instalátor přímo.</p>
@@ -265,105 +260,6 @@
   </footer>
 
   <script src="../../js/script.js"></script>
-<<<<<<< HEAD
   
-=======
-  <script>
-    (async function () {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 7000);
-
-      try {
-        const response = await fetch(
-          "../../prekladac-her/aktualizace.json",
-          {
-            cache: "no-store",
-            credentials: "omit",
-            signal: controller.signal
-          }
-        );
-
-        if (!response.ok) throw new Error("Aktualizační údaje nejsou dostupné.");
-
-        const release = await response.json();
-        const version = String(release.Version || "");
-
-        if (
-          release.SchemaVersion !== 1 ||
-          !/^\d+\.\d+\.\d+(?:\.\d+)?$/.test(version) ||
-          !/^[a-fA-F0-9]{64}$/.test(release.InstallerSha256 || "") ||
-          !Number.isSafeInteger(release.InstallerBytes) ||
-          release.InstallerBytes <= 0
-        ) {
-          throw new Error("Neplatné aktualizační údaje.");
-        }
-
-        const installer = new URL(release.InstallerUrl);
-        const repositoryPath = "/letsfail69-sudo/Kraken89";
-        const match = installer.pathname.match(
-          /^\/letsfail69-sudo\/Kraken89\/releases\/download\/(v?\d+\.\d+\.\d+(?:\.\d+)?)\/Prekladac_Her_Setup\.exe$/
-        );
-
-        if (
-          installer.protocol !== "https:" ||
-          installer.host !== "github.com" ||
-          installer.username ||
-          installer.password ||
-          installer.search ||
-          installer.hash ||
-          !match ||
-          match[1].replace(/^v/, "") !== version
-        ) {
-          throw new Error("Neplatný odkaz na instalátor.");
-        }
-
-        const tag = match[1];
-        const base = "https://github.com" + repositoryPath;
-        const assets = {
-          setup: "Prekladac_Her_Setup.exe",
-          zip: "Prekladac_Her_Instalator.zip",
-          portable: "Prekladac_Her_Portable.zip"
-        };
-
-        document.querySelectorAll("[data-current-version]").forEach(element => {
-          element.textContent = version;
-        });
-
-        document.querySelectorAll("[data-download]").forEach(element => {
-          const filename = assets[element.dataset.download];
-          if (filename) {
-            element.href = base + "/releases/download/" + tag + "/" + filename;
-          }
-        });
-
-        document.querySelector("[data-release-page]").href =
-          base + "/releases/tag/" + tag;
-
-        document.querySelector("[data-setup-size]").textContent =
-          new Intl.NumberFormat("cs-CZ", {
-            maximumFractionDigits: 1
-          }).format(release.InstallerBytes / 1024 / 1024) + " MB";
-
-        document.querySelector("[data-setup-sha256]").textContent =
-          release.InstallerSha256.toLowerCase();
-
-        if (typeof release.Notes === "string" && release.Notes.trim()) {
-          document.querySelector("[data-current-notes]").textContent =
-            release.Notes.slice(0, 8000);
-        }
-
-        document.querySelector("[data-release-status]").textContent =
-          "Údaje o vydání byly načteny z webu autora. Testovací vydání pro Windows.";
-      } catch (error) {
-        document.querySelector("[data-release-status]").textContent =
-          "Aktuální vydání se nepodařilo ověřit. Dostupné soubory zkontroluj na GitHubu.";
-        document.querySelector("[data-release-page]").href =
-          "https://github.com/letsfail69-sudo/Kraken89/releases";
-      } finally {
-        clearTimeout(timeout);
-      }
-    }());
-  </script>
->>>>>>> 3b61c4290116d1b6be339ae2e7eba4876488a6a3
 </body>
 </html>

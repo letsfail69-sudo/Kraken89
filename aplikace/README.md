@@ -1,20 +1,13 @@
-# Aplikace na webu Kraken89
+# Web Kraken89 — balík pro Překladač her 1.3.4
 
-Nahraj obsah složky Kraken89-main do stávajícího repozitáře webu.
+1. Rozbal ZIP. Nahraj OBSAH složky Kraken89-main do kořene existujícího webu/repozitáře. Nenahrávej jen ZIP jako soubor a nevytvářej další vnořenou složku Kraken89-main.
+2. Web nyní ukazuje novinky 1.3.4 jako připravené. Aktivní stahování a aktualizace zůstávají na 1.3.3.
+3. Po testu na Windows vytvoř na GitHubu vydání s přesným tagem 1.3.4 (bez v).
+4. Do vydání přilož poslední rozšířené soubory Prekladac_Her_Setup.exe, Prekladac_Her_Instalator.zip a Prekladac_Her_Portable.zip.
+5. Až budou všechny tři soubory dostupné, nahraď prekladac-her/aktualizace.json obsahem prekladac-her/aktualizace-1.3.4.json. Původní cestu /prekladac-her/aktualizace.json neměň.
+6. Web automaticky přepne tlačítka, verzi, velikost a SHA-256 na 1.3.4 a historii označí jako aktuální vydání. Datum vydání můžeš potom doplnit do aplikace/prekladac-her/historie.json a změnit Status na released.
 
-- Katalog: aplikace/index.html
-- Překladač: aplikace/prekladac-her/index.html
-- Historie: aplikace/prekladac-her/historie.html
-- Údaje historie: aplikace/prekladac-her/historie.json
+Přibalený nový JSON patří k poslednímu rozšířenému instalátoru 1.3.4; starší testovací balík měl jiný součet.
+Pro návštěvníky bez JavaScriptu zůstává v HTML funkční dosavadní stažení 1.3.3. Po vydání můžeš také ručně aktualizovat výchozí verze/odkazy v HTML; návštěvníci s JavaScriptem se řídí aktivním JSON.
 
-## Další vydání
-1. Zveřejni GitHub release vX.Y.Z se soubory Prekladac_Her_Setup.exe, Prekladac_Her_Instalator.zip a Prekladac_Her_Portable.zip.
-2. Uprav původní prekladac-her/aktualizace.json: Version, InstallerUrl, InstallerSha256, InstallerBytes a Notes podle skutečného vydání. Cestu neměň, používá ji také aplikace.
-3. Přidej záznam do historie.json. Status může být prepared (připraveno), released (vydáno), archive (starší bez odkazu na release). Date je YYYY-MM-DD nebo null. Changes je seznam změn.
-4. Uprav také výchozí texty a odkazy v HTML pro návštěvníky bez JavaScriptu.
-
-Web načítá aktuální vydání z aktualizace.json. Připravený záznam označí jako vydaný jen při shodě s aktuální verzí tohoto souboru. Nyní je veřejná verze 1.3.1; 1.3.2 je připravená.
-
-Další aplikaci přidej do vlastní podsložky a vlož kartu do katalogu. Do webu nepatří API klíče ani soukromý autorský balíček.
-
-Aktualizace 1.3.3: společný JavaScript podporuje tagy s v i bez v podle InstallerUrl. Historie používá pole Tag. Aktuální součet EXE byl porovnán s GitHub release 1.3.3.
+Soukromé zdrojové kódy aplikace do veřejného webu ani vydání nepatří. Nový komunitní server ani odesílání dat nejsou součástí tohoto balíku.

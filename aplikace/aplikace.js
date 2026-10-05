@@ -71,6 +71,9 @@
       document.querySelectorAll('[data-setup-sha256]').forEach(el => { el.textContent = data.InstallerSha256.toLowerCase(); });
       document.querySelectorAll('[data-setup-size]').forEach(el => { el.textContent = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 1 }).format(data.InstallerBytes / 1048576) + ' MB'; });
       if (compare(data.Version, '1.3.2') >= 0) document.querySelectorAll('[data-compatibility-note]').forEach(el => { el.textContent = 'Od verze 1.3.2 se navíc zobrazují údaje o verzi a funkčnosti češtiny, pokud je zdrojový web uvádí. Shodu s nainstalovanou verzí hry aplikace automaticky nezaručuje.'; });
+      const ready134 = compare(data.Version, '1.3.4') >= 0;
+      document.querySelectorAll('[data-version-134-heading]').forEach(el => { el.textContent = ready134 ? 'Novinky ve verzi 1.3.4' : 'Připraveno ve verzi 1.3.4'; });
+      document.querySelectorAll('[data-pending-134]').forEach(el => { el.hidden = ready134; });
       renderHistory();
     } catch { document.querySelectorAll('[data-release-status]').forEach(el => { el.textContent = 'Nejnovější vydání se nepodařilo ověřit. Dostupné verze najdeš na GitHubu.'; }); }
   }

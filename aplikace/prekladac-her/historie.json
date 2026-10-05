@@ -2,6 +2,25 @@
   "SchemaVersion": 1,
   "Versions": [
     {
+      "Version": "1.3.4",
+      "Date": null,
+      "Status": "prepared",
+      "Tag": "1.3.4",
+      "Title": "Správa překladu, oblíbené hry a kontrola Steam sestavení",
+      "Changes": [
+        "Možnost automatický překlad vypnout a později obnovit.",
+        "Odstranění evidovaných překladových součástí s obnovou původních souborů a volbou zachovat automatické překlady.",
+        "Kontrola změněných souborů, poškozených záloh a dalších pluginů nebo patcherů před odstraněním.",
+        "Oblíbené hry nahoře v seznamu a přehled stavu, služby a velikosti uložených překladů.",
+        "Informace o hře včetně místního Steam App ID, Build ID a větve.",
+        "Porovnání místního Steam sestavení s explicitními údaji na původním webu češtiny.",
+        "Zobrazení dostupných údajů autora, zdroje, verze češtiny a hry a upozornění na funkčnost.",
+        "Opakovaná kontrola před stažením a spuštěním instalátoru češtiny; doložené jiné Steam ID hry akci zablokuje.",
+        "Export diagnostiky k feedbacku se skrytím rozpoznaných klíčů a nahrazením cest ke hře a profilu.",
+        "Chystané novinky v menu: komunitní knihovna, dobrovolné sdílení a souhrnné statistiky. Zatím se nic neodesílá."
+      ]
+    },
+    {
       "Version": "1.3.3",
       "Date": "2026-10-03",
       "Status": "released",
