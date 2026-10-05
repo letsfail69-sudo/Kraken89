@@ -1,9 +1,0 @@
-{
-  "SchemaVersion": 1,
-  "Version": "1.3.4",
-  "InstallerUrl": "https://github.com/letsfail69-sudo/Kraken89/releases/download/1.3.4/Prekladac_Her_Setup.exe",
-  "InstallerSha256": "204e77831c10cdc70330e75d8d24672720f70a568287848b56f9a79be91d0079",
-  "InstallerBytes": 67527680,
-  "PageUrl": "https://kraken89.cz/aplikace/prekladac-her/",
-  "Notes": "Správa překladu, oblíbené hry, Steam Build ID, kontrola kompatibility podle původních webů a export diagnostiky."
-}
