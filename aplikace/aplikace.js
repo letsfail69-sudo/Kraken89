@@ -2,7 +2,9 @@
   'use strict';
   const folder = new URL('.', document.currentScript.src);
   const repository = 'https://github.com/letsfail69-sudo/Kraken89';
-  let currentVersion = '1.3.3', currentTag = '1.3.3', entries = [], filter = 'all';
+  let currentVersion = '1.3.4', currentTag = '1.3.4', entries = [], filter = 'all';
+  let releasePage = 'https://www.heyfolk.eu/application.php', releaseNotes = '';
+  const heyfolkFeed = 'https://www.heyfolk.eu/api/updates.php';
   async function readJson(url) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 7000);
@@ -26,6 +28,10 @@
   function renderHistory() {
     const host = document.querySelector('[data-version-history]');
     if (!host || !entries.length) return;
+    if (releaseNotes && !entries.some(entry => entry.Version === currentVersion)) {
+      entries.unshift({ Version: currentVersion, Status: 'released', Title: 'Publikované vydání z Heyfolk', Changes: [releaseNotes] });
+      entries.sort((a, b) => compare(b.Version, a.Version));
+    }
     const fragment = document.createDocumentFragment();
     let visible = 0;
     for (const entry of entries) {
@@ -46,28 +52,48 @@
       const list = node('ul'); entry.Changes.forEach(text => list.append(node('li', text))); article.append(list);
       if (!released) article.append(node('p', 'Vydání je připravené k testování. Stažení se zpřístupní po zveřejnění.', 'app-small'));
       else if (active || entry.Status !== 'archive') {
-        const link = node('a', 'Vydání na GitHubu →'); link.href = repository + '/releases/tag/' + (active ? currentTag : entry.Tag || entry.Version); article.append(link);
+        const link = node('a', active ? 'Podrobnosti a stažení →' : 'Vydání na GitHubu →'); link.href = active ? releasePage : repository + '/releases/tag/' + (entry.Tag || entry.Version); article.append(link);
+        if (active && releaseNotes) { const notes = node('p', releaseNotes); notes.style.whiteSpace = 'pre-line'; article.append(notes); }
       }
       fragment.append(article);
     }
     if (!visible) fragment.append(node('p', 'V této kategorii zatím není žádná verze.', 'app-empty'));
     host.replaceChildren(fragment);
   }
+  function validateRelease(data, heyfolk) {
+    if (!data || data.SchemaVersion !== 1 || !/^\d+\.\d+\.\d+(?:\.\d+)?$/.test(data.Version) || !/^[a-f\d]{64}$/i.test(data.InstallerSha256 || '') || !Number.isSafeInteger(data.InstallerBytes) || data.InstallerBytes <= 0) throw new Error('Invalid release');
+    if (heyfolk) {
+      const installer = new URL(data.InstallerUrl), page = new URL(data.PageUrl);
+      if (installer.origin !== 'https://www.heyfolk.eu' || installer.pathname !== '/download.php' || installer.username || installer.password || installer.hash || !/^[1-9]\d*$/.test(installer.searchParams.get('release') || '') || installer.searchParams.get('asset') !== 'setup' || [...installer.searchParams.keys()].length !== 2 || page.origin !== installer.origin || page.pathname !== '/application.php' || page.search || page.hash || page.username || page.password) throw new Error('Unexpected Heyfolk URL');
+    } else if (![data.Version, 'v' + data.Version].some(tag => data.InstallerUrl === repository + '/releases/download/' + tag + '/Prekladac_Her_Setup.exe')) throw new Error('Unexpected GitHub URL');
+  }
   async function loadRelease() {
     try {
-      const data = await readJson(new URL('../prekladac-her/aktualizace.json', folder));
+      let data, source;
+      try { data = await readJson(heyfolkFeed); validateRelease(data, true); source = 'heyfolk'; }
+      catch { data = await readJson(new URL('../prekladac-her/aktualizace.json', folder)); validateRelease(data, false); source = 'fallback'; }
       if (data.SchemaVersion !== 1 || !/^\d+\.\d+\.\d+(?:\.\d+)?$/.test(data.Version) || !/^[a-f\d]{64}$/i.test(data.InstallerSha256 || '') || !Number.isSafeInteger(data.InstallerBytes) || data.InstallerBytes <= 0) throw new Error('Invalid release');
-      const candidates = [data.Version, 'v' + data.Version];
-      const tag = candidates.find(value => data.InstallerUrl === repository + '/releases/download/' + value + '/Prekladac_Her_Setup.exe');
-      if (!tag) throw new Error('Unexpected download URL');
-      const base = repository + '/releases/download/' + tag + '/';
-      currentTag = tag;
+      const files = { setup: 'Prekladac_Her_Setup.exe', zip: 'Prekladac_Her_Instalator.zip', portable: 'Prekladac_Her_Portable.zip' };
+      let links;
+      if (source === 'heyfolk') {
+        const installer = new URL(data.InstallerUrl);
+        links = Object.fromEntries(Object.keys(files).map(asset => {
+          const download = new URL(installer); download.searchParams.set('asset', asset); return [asset, download.href];
+        }));
+        releasePage = data.PageUrl;
+      } else {
+        currentTag = data.InstallerUrl.split('/').slice(-2)[0];
+        const base = repository + '/releases/download/' + currentTag + '/';
+        links = Object.fromEntries(Object.entries(files).map(([asset, name]) => [asset, base + name]));
+        releasePage = repository + '/releases/tag/' + currentTag;
+      }
+      releaseNotes = typeof data.Notes === 'string' ? data.Notes.split(/^##\s+(?:Instalace|Ověření)/m)[0].replace(/^#{1,6}\s+/gm, '').replace(/\*\*/g, '').replace(/`/g, '').trim() : '';
       currentVersion = data.Version;
       document.querySelectorAll('[data-current-version]').forEach(el => { el.textContent = data.Version; });
-      const files = { setup: 'Prekladac_Her_Setup.exe', zip: 'Prekladac_Her_Instalator.zip', portable: 'Prekladac_Her_Portable.zip' };
-      document.querySelectorAll('[data-download]').forEach(el => { if (files[el.dataset.download]) el.href = base + files[el.dataset.download]; });
-      document.querySelectorAll('[data-release-page]').forEach(el => { el.href = repository + '/releases/tag/' + currentTag; });
-      document.querySelectorAll('[data-current-notes]').forEach(el => { el.textContent = typeof data.Notes === 'string' && data.Notes.trim() ? data.Notes.slice(0, 600) : 'Podrobnosti o změnách najdeš v historii verzí.'; });
+      document.querySelectorAll('[data-download]').forEach(el => { if (links[el.dataset.download]) el.href = links[el.dataset.download]; });
+      document.querySelectorAll('[data-release-page]').forEach(el => { el.href = releasePage; el.textContent = source === 'heyfolk' ? 'Vydání na Heyfolk' : 'Vydání na GitHubu'; });
+      document.querySelectorAll('[data-release-status]').forEach(el => { el.textContent = source === 'heyfolk' ? 'Aktuální publikované vydání z centra Heyfolk.' : 'Heyfolk se nepodařilo načíst. Zobrazuje se záložní vydání; nemusí být nejnovější.'; });
+      document.querySelectorAll('[data-current-notes]').forEach(el => { el.textContent = releaseNotes ? (releaseNotes.split(/\n\s*\n/).find(part => part.trim() && !part.includes('co je nového')) || releaseNotes).slice(0, 600) : 'Podrobnosti o změnách najdeš v historii verzí.'; });
       document.querySelectorAll('[data-setup-sha256]').forEach(el => { el.textContent = data.InstallerSha256.toLowerCase(); });
       document.querySelectorAll('[data-setup-size]').forEach(el => { el.textContent = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 1 }).format(data.InstallerBytes / 1048576) + ' MB'; });
       if (compare(data.Version, '1.3.2') >= 0) document.querySelectorAll('[data-compatibility-note]').forEach(el => { el.textContent = 'Od verze 1.3.2 se navíc zobrazují údaje o verzi a funkčnosti češtiny, pokud je zdrojový web uvádí. Shodu s nainstalovanou verzí hry aplikace automaticky nezaručuje.'; });
