@@ -2,8 +2,8 @@
   "SchemaVersion": 1,
   "Version": "1.3.4",
   "InstallerUrl": "https://github.com/letsfail69-sudo/Kraken89/releases/download/1.3.4/Prekladac_Her_Setup.exe",
-  "InstallerSha256": "dc4b1dbc99f782f017a1aa3723eed033dda7aec78a0ba639e406cff9173ef9de",
-  "InstallerBytes": 67520000,
+  "InstallerSha256": "8e1d674f6820086e3a279dc13003c78f98d7143beaf53594f3b247b7e2533abc",
+  "InstallerBytes": 67527680,
   "PageUrl": "https://kraken89.cz/aplikace/prekladac-her/",
-  "Notes": "Správa a odstranění překladu, oblíbené hry, export diagnostiky a chystaná komunitní knihovna češtin."
+  "Notes": "Správa překladu, oblíbené hry, Steam Build ID a přechod dalších aktualizací na centrum Heyfolk."
 }
