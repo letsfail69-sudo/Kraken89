@@ -29,3 +29,7 @@ Rozcestník `online-hry/index.html` vede na hry v samostatných podsložkách. R
 
 ## Aplikace
 Sekce aplikace/ obsahuje Překladač her, stažení a historii verzí. Pokyny k dalším vydáním jsou v aplikace/README.md.
+
+## Star Courier – hraní přímo z webu
+
+Nová stránka `online-hry/star-courier/index.html` otevírá existující přehrávač Heyfolk uvnitř webu. Karta je na homepage i v Online hry. Herní účty, postup a statistiky zůstávají na Heyfolk; GitHub Pages neobsahuje kopii hry ani PHP. Celý postup nasazení: STAR-COURIER-NASAZENI.md. Paměť dalšího vývoje: STAR-COURIER-PROJECT-BRAIN.md.
