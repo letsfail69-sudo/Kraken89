@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuButton && menu) {
     menuButton.setAttribute('aria-expanded', 'false');
+    if (!menu.id) menu.id = 'site-navigation';
+    menuButton.setAttribute('aria-controls', menu.id);
     menuButton.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(isOpen));
     });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') { menu.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); } });
   }
 
   const contactForm = document.querySelector('#contact-form');
